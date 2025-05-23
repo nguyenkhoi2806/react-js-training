@@ -127,7 +127,7 @@ function App() {
 
 **_Ui Suggestion_**
 
-![alt text](image-1.png)
+![alt text](image-3.png)
 
 ### 2 Product Counter App
 
