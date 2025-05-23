@@ -4,21 +4,21 @@
 
 ### What is state
 
-- State là một đối tượng đặc biệt trong React, dùng để lưu trữ dữ liệu nội bộ của component.
-- Khi state thay đổi, React sẽ tự động re-render lại component để cập nhật giao diện.
+- State is a special object in React used to store a component's internal data.
+- When the state changes, React automatically re-renders the component to update the user interface.
 
-### Tại sao cần state?
+### Why need state ?
 
-- HTML/JS thông thường không "nhớ" được dữ liệu sau mỗi lần thay đổi.
-- React cho phép ghi nhớ và cập nhật lại UI khi dữ liệu thay đổi — nhờ vào state.
+- HTML/JavaScript does not "remember" data after each change.
+- React allows you to remember and update the UI when data changes — thanks to state.
 
-### Ví dụ
+### Example
 
-- Số lần người dùng click nút
-- Tình trạng mở/tắt menu
-- Danh sách sản phẩm đã thêm vào giỏ hàng
+- The number of times the user clicks a button
+- The open/close state of a menu
+- The list of products added to the shopping cart
 
-### Cách sử dụng state
+### How to use state
 
 ### Function component
 
@@ -39,9 +39,9 @@ function Counter() {
 
 **\*Explain**
 
-- `useState(0)` tạo ra một state tên count với giá trị khởi đầu là 0
-- `setCount` là hàm dùng để thay đổi giá trị count
-- Khi gọi `setCount(...)`, React sẽ `re-render` lại UI để hiển thị giá trị mới
+- `useState(0)` Create a state named count with an initial value of 0.
+- `setCount` It's the function used to update the value of count.
+- When `setCount(...)` is called, React will `re-render` the UI to display the new value.
 
 ### Class component
 
@@ -77,18 +77,17 @@ export default Counter;
 
 **\*Explain**
 
-- `constructor` Dùng để khởi tạo state, gọi `super(props)` để kế thừa từ `React.Component`
-- `this.state` Dữ liệu nội bộ của component
-- `this.setState(...)` Cập nhật `state` và tự động `re-render` giao diện
-- `render()` Trả về JSX để hiển thị trên giao diện
+- `constructor` is used to initialize state and calls `super(props)` to inherit from `React.Component`
+- `this.state` the internal data of the component
+- `this.setState(...)` Updated `state` and auto `re-render` UI
+- `render()` returns JSX to render on the interface.
 
 ## Props
 
 ### What is Props
 
-- Props là viết tắt của "properties"
-- Dùng để truyền dữ liệu từ component cha → component con
-- Trong React, props là "đầu vào" của component, giúp component linh hoạt & tái sử dụng được.
+- Used to pass data from a parent component to a child component.
+  -In React, props are the "inputs" of a component that help make the component flexible and reusable.
 
 ### Example
 
@@ -104,8 +103,6 @@ function App() {
 
 **\*Explains**
 
-- Welcome là component con
-- name="William" là props được truyền từ App vào Welcome
-- Trong Welcome, ta truy cập props.name để sử dụng dữ liệu đó
-
-### Tái sử dụng component với propsi
+- `Welcome` is the child component
+- name="William" is a prop passed from App to Welcome
+- Inside Welcome, we access props.name to use that data
