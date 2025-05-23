@@ -1,11 +1,13 @@
-# Life circle in React
+# Review previous lesson
 
-## What is Lifecycle component in React ?
+## Life circle in React
+
+### What is Lifecycle component in React ?
 
 - Lifecycle in React describes the different stages in a component’s creation, update, and unmounting process.
 - Depending on whether the component is a class or a function, the way lifecycle is handled will differ:
 
-## Lifecycle in Class Component
+### Lifecycle in Class Component
 
 | Stage          | Typical methods                                                 | Explain                                                        |
 | -------------- | --------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -33,7 +35,7 @@ class Example extends React.Component {
 }
 ```
 
-## Lifecycle in Function Component
+### Lifecycle in Function Component
 
 | Stage          | Hook                                          | Explain                                    |
 | -------------- | --------------------------------------------- | ------------------------------------------ |
@@ -57,9 +59,9 @@ function Example() {
 }
 ```
 
-## Call Api with in componentDidMount / UseEffect
+### Call Api with in componentDidMount / UseEffect
 
-## How to call APi
+### How to call APi
 
 - Using `fetch` or `axios`
 - `Fetch` is native JS implement error and parse json by manual
@@ -402,13 +404,33 @@ function UserList() {
 
 ![alt text](image.png)
 
-### 3. Countdown Timer with useEffect
+### 3. Countdown Timer with Input, Start, and Stop
 
-- Create a CountdownTimer component that displays a countdown timer starting from a given initial value, and stops at 0. Use the useEffect hook to update the displayed time every second.
+- Build a CountdownTimer React component that allows users to input the starting time, and provides controls to start, stop, and optionally reset the timer. The countdown stops automatically at 0.
+
 - Expectations:
-  - Display the countdown timer, starting from the given initial value.
-  - Update the timer every second using `useEffect`.
-  - Stop the timer when it reaches 0.
-  - Display the following text as the timer counts down: "Time Remaining: X"
-  - Start the timer when the component mounts.
-  - Stop the timer when the component unmounts.
+
+  - Users can enter a starting time (in seconds) via an input field.
+  - Timer displays: "Time Remaining: X" (X = seconds left).
+  - Countdown updates every second using the useEffect hook.
+  - Timer stops automatically when it reaches 0 and displays "Time's up!".
+
+- Buttons:
+
+  - Start:
+
+    - Starts the countdown using the value entered in the input.
+    - Disabled when the timer is running or the input is invalid (e.g., empty or ≤ 0).
+
+  - Stop:
+
+    - Pauses the countdown.
+    - Disabled when the timer is not running.
+
+  - Reset (optional):
+
+    - Resets the timer to the initial input value and stops it.
+
+**_Ui Suggestion_**
+
+![alt text](image-1.png)
