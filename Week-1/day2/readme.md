@@ -101,6 +101,104 @@ function App() {
 - name="William" is a prop passed from App to Welcome
 - Inside Welcome, we access props.name to use that data
 
+# Event Handling in React
+
+## What is an event?
+
+- An event is an action that a user or browser can trigger — like a click, hover, form submit, keypress, etc.
+- React uses its own synthetic event system which wraps the native DOM events and works consistently across all browsers.
+
+## How to handle events in React
+
+### In Functional Components
+
+```jsx
+function ClickButton() {
+  const handleClick = () => {
+    alert("Button clicked!");
+  };
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
+```
+
+- `onClick` is a React prop that listens to the click event.
+- `handleClick` is a function that executes when the event is triggered.
+
+Inline Function
+
+```jsx
+<button onClick={() => alert("Clicked!")}>Click Inline</button>
+```
+
+You can also write the handler directly inline, but avoid complex logic inline for readability.
+
+### Class Component
+
+```jsx
+import React from "react";
+
+class ClickButton extends React.Component {
+  handleClick() {
+    alert("Button clicked!");
+  }
+
+  render() {
+    return <button onClick={this.handleClick}>Click Me</button>;
+  }
+}
+```
+
+- Problem with `this`
+- When call this.handleClick,will receive `this is undefined` if don't `bind this`. There are three ways to handle this:
+
+**Use `bind` in `constructor`**:
+
+```jsx
+class ClickButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    alert("Button clicked!");
+  }
+
+  render() {
+    return <button onClick={this.handleClick}>Click Me</button>;
+  }
+}
+```
+
+**Use `arrow function`**:
+
+```jsx
+class ClickButton extends React.Component {
+  handleClick = () => {
+    alert("Button clicked!");
+  };
+
+  render() {
+    return <button onClick={this.handleClick}>Click Me</button>;
+  }
+}
+```
+
+**Use `arrow function` in JSX**:
+
+```jsx
+class ClickButton extends React.Component {
+  handleClick() {
+    alert("Button clicked!");
+  }
+
+  render() {
+    return <button onClick={() => this.handleClick()}>Click Me</button>;
+  }
+}
+```
+
 ## Exercise (use both class component and function component)
 
 ### 1 Mini Voting App

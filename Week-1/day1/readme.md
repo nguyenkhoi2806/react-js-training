@@ -75,63 +75,6 @@ class Header extends React.Component {
 }
 ```
 
-### What is Lifecycle component in React ?
-
-- Lifecycle in React describes the different stages in a component’s creation, update, and unmounting process.
-- Depending on whether the component is a class or a function, the way lifecycle is handled will differ:
-
-#### Lifecycle in Class Component
-
-| Stage          | Typical methods                                                 | Explain                                                        |
-| -------------- | --------------------------------------------------------------- | -------------------------------------------------------------- |
-| **Mounting**   | `constructor()` → `render()` → `componentDidMount()`            | When the component is created and rendered for the first time. |
-| **Updating**   | `shouldComponentUpdate()` → `render()` → `componentDidUpdate()` | When props or state change.                                    |
-| **Unmounting** | `componentWillUnmount()`                                        | When component removed from DOM                                |
-
-```jsx
-class Example extends React.Component {
-  componentDidMount() {
-    console.log("Component mounted");
-  }
-
-  componentDidUpdate() {
-    console.log("Component updated");
-  }
-
-  componentWillUnmount() {
-    console.log("Component deleted");
-  }
-
-  render() {
-    return <div>Hello</div>;
-  }
-}
-```
-
-#### Lifecycle in Function Component
-
-| Stage          | Hook                                          | Explain                                    |
-| -------------- | --------------------------------------------- | ------------------------------------------ |
-| **Mounting**   | `useEffect(() => { ... }, [])`                | runs once when component render first time |
-| **Updating**   | `useEffect(() => { ... }, [deps])`            | runs when dependency array change          |
-| **Unmounting** | `useEffect(() => { return () => {...} }, [])` | return will run when component unmount     |
-
-```jsx
-import { useEffect } from "react";
-
-function Example() {
-  useEffect(() => {
-    console.log("Components mount");
-
-    return () => {
-      console.log("Component unmount");
-    };
-  }, []);
-
-  return <div>Hello</div>;
-}
-```
-
 ## Exercise
 
 **_Note_** Use both function component and class component
