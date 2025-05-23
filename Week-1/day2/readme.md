@@ -12,7 +12,7 @@
 - HTML/JavaScript does not "remember" data after each change.
 - React allows you to remember and update the UI when data changes — thanks to state.
 
-### Example
+**_Example_**
 
 - The number of times the user clicks a button
 - The open/close state of a menu
@@ -20,7 +20,7 @@
 
 ### How to use state
 
-### Function component
+**_Function component_**
 
 ```jsx
 import { useState } from "react";
@@ -37,13 +37,11 @@ function Counter() {
 }
 ```
 
-**\*Explain**
-
 - `useState(0)` Create a state named count with an initial value of 0.
 - `setCount` It's the function used to update the value of count.
 - When `setCount(...)` is called, React will `re-render` the UI to display the new value.
 
-### Class component
+**_Class component_**
 
 ```jsx
 import React from "react";
@@ -75,8 +73,6 @@ class Counter extends React.Component {
 export default Counter;
 ```
 
-**\*Explain**
-
 - `constructor` is used to initialize state and calls `super(props)` to inherit from `React.Component`
 - `this.state` the internal data of the component
 - `this.setState(...)` Updated `state` and auto `re-render` UI
@@ -84,12 +80,12 @@ export default Counter;
 
 ## Props
 
-### What is Props
+**_What is Props_**
 
 - Used to pass data from a parent component to a child component.
 - In React, props are the "inputs" of a component that help make the component flexible and reusable.
 
-### Example
+**_Example_**
 
 ```jsx
 function Welcome(props) {
@@ -101,19 +97,17 @@ function App() {
 }
 ```
 
-**\*Explains**
-
 - `Welcome` is the child component
 - name="William" is a prop passed from App to Welcome
 - Inside Welcome, we access props.name to use that data
 
 ## Exercise (use both class component and function component)
 
-### Mini Voting App
+### 1 Mini Voting App
 
 - Build a simple voting application for 3 candidates. Users can click the "Vote" button to increase a candidate's vote count and see the live result.
 
-#### Requirements
+**_Requirements_**
 
 1 Display a List of Candidates
 
@@ -131,7 +125,7 @@ function App() {
 
 - The App component should pass data and vote handlers to each Candidate component using props
 
-#### Ui Suggestion
+**_Ui Suggestion_**
 
 🏆 Voting App
 
@@ -145,16 +139,16 @@ function App() {
 
 Leader: Lisa 🥇
 
-### Product Counter App
+### 2 Product Counter App
 
-#### Description
+**_Description_**
 
 - Build a mini shopping cart interface with a list of 3 products. Each product should have:
 - A name
 - A quantity display (default: 0)
 - Two buttons: "➖ Decrease" and "➕ Increase"
 
-#### Requirements
+**_Requirements_**
 
 **_Render a list of products in the App component_**
 
@@ -176,7 +170,7 @@ const products = [
 - Pass the quantities up to the App component via a shared state (lifting state up)
 - `CartSummary` shows the total quantity of all items
 
-#### Layout Example
+**_Layout Example_**
 
 ==========================
 🛒 Shopping Cart
@@ -189,3 +183,55 @@ const products = [
 Total Items: 3
 
 ---
+
+### 3 Implement useState to build a Todo List from Day 1
+
+### 4 Build a Simple Caro (Tic-Tac-Toe) Game
+
+**_Requirements_**
+
+1 Render a 3x3 game board using a Board component
+
+- The board contains 9 Square components
+- Squares display "X" or "O" when clicked
+
+2 Track and switch turns between X and O
+
+- Default: X starts first
+- Alternate turns after each move
+
+3 Prevent a square from being clicked more than once
+
+4 Display a message:
+
+- "Next turn: X" or "Next turn: O"
+- "Player X wins!" or "Player O wins!" when someone wins
+- "Draw!" if all squares are filled and no one wins
+
+**_Component Responsibilities_**
+`Square.jsx`
+
+- Receives value ("X", "O", or "") via props
+- Renders a button showing that value
+- Calls onClick() from props when clicked
+
+`Board.jsx`
+
+- Manages game state: an array of 9 values
+- Passes each square's value and onClick handler to Square
+- Handles turn logic and winner checking
+
+`App.jsx`
+
+- Holds game state (if lifting up)
+- Displays status message and renders Board
+
+**_UI Example_**
+Tic-Tac-Toe Game
+Next turn: X
+
+[ X ] [ O ] [ ]
+[ O ] [ X ] [ ]
+[ ] [ ] [ X ]
+
+🎉 Player X wins!
