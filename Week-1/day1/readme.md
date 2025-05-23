@@ -121,10 +121,10 @@ import { useEffect } from "react";
 
 function Example() {
   useEffect(() => {
-    console.log("Component đã được mount");
+    console.log("Components mount");
 
     return () => {
-      console.log("Component sẽ bị unmount");
+      console.log("Component unmount");
     };
   }, []);
 
@@ -133,6 +133,8 @@ function Example() {
 ```
 
 ## Exercise
+
+**_Note_** Use both function component and class component
 
 ### 1 Build a Traffic Light using only JSX, CSS styles, and Component Export like this picture bellow
 
