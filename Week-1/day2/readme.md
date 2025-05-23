@@ -127,17 +127,7 @@ function App() {
 
 **_Ui Suggestion_**
 
-🏆 Voting App
-
----
-
-👤 William Votes: 4 [Vote]
-👤 Lisa Votes: 6 [Vote]
-👤 John Votes: 2 [Vote]
-
----
-
-Leader: Lisa 🥇
+![alt text](image-1.png)
 
 ### 2 Product Counter App
 
@@ -172,21 +162,9 @@ const products = [
 
 **_Layout Example_**
 
-==========================
-🛒 Shopping Cart
+![alt text](image-2.png)
 
----
-
-🍎 Apple Qty: 2 [-] [+]
-🍌 Banana Qty: 0 [-] [+]
-🍊 Orange Qty: 1 [-] [+]
-Total Items: 3
-
----
-
-### 3 Implement useState to build a Todo List from Day 1
-
-### 4 Build a Simple Caro (Tic-Tac-Toe) Game
+### 3 Build a Simple Caro (Tic-Tac-Toe) Game
 
 **_Requirements_**
 
@@ -227,11 +205,7 @@ Total Items: 3
 - Displays status message and renders Board
 
 **_UI Example_**
-Tic-Tac-Toe Game
-Next turn: X
 
-[ X ] [ O ] [ ]
-[ O ] [ X ] [ ]
-[ ] [ ] [ X ]
+![alt text](image.png)
 
-🎉 Player X wins!
+### 4 Implement useState to build a Todo List from Day 1
