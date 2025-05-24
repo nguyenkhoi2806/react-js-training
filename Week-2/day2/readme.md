@@ -221,3 +221,92 @@ function App() {
   );
 }
 ```
+
+## Form
+
+### Controlled Component
+
+- Là các component mà giá trị của input được điều khiển hoàn toàn bởi React thông qua state.
+
+- Đặc điểm:
+
+  - Giá trị nhập vào được lưu trong useState
+  - Bắt buộc xử lý onChange để cập nhật state
+  - Dễ kiểm soát, dễ xác thực dữ liệu, dễ reset form
+
+_**Example**_
+
+```jsx
+import { useState } from "react";
+
+function ControlledInput() {
+  const [name, setName] = useState("");
+
+  return <input value={name} onChange={(e) => setName(e.target.value)} />;
+}
+```
+
+### Uncontrolled Component
+
+- Là các component mà giá trị của input được lưu trữ trực tiếp trong DOM, không thông qua state.
+
+- Đặc điểm:
+
+  - Dùng ref để lấy giá trị khi cần thiết
+  - Không cần state để lưu trữ giá trị
+  - Nhanh chóng cho form đơn giản, nhưng khó kiểm soát khi form phức tạp
+
+_**Example**_
+
+```jsx
+import { useRef } from "react";
+
+function UncontrolledInput() {
+  const inputRef = useRef();
+
+  const handleSubmit = () => {
+    alert(inputRef.current.value);
+  };
+
+  return (
+    <>
+      <input ref={inputRef} />
+      <button onClick={handleSubmit}>Submit</button>
+    </>
+  );
+}
+```
+
+### Compartition
+
+| Tiêu chí        | Controlled Component              | Uncontrolled Component         |
+| --------------- | --------------------------------- | ------------------------------ |
+| Quản lý dữ liệu | Qua `state`                       | Qua DOM (`ref`)                |
+| Tính linh hoạt  | Cao (validation, auto format,...) | Thấp hơn                       |
+| Tính hiệu năng  | Chậm hơn chút (nhiều re-render)   | Nhanh hơn cho form đơn giản    |
+| Sử dụng khi nào | Form phức tạp, cần validation     | Form đơn giản, hoặc quick task |
+
+## Exercise
+
+### Exercise 1: Basic React.memo
+
+- Task:
+
+  - Create two components: Counter (parent) and Child (child).
+  - Child accepts a title prop and logs to the console on render.
+  - When the count changes but title doesn’t, Child should not re-render.
+
+### Exercise 2: Optimize Callback with useCallback
+
+- Task:
+
+  - Create a List component that receives an onAddItem function from the parent.
+  - Use useCallback in the parent to prevent passing a new function reference on each render.
+
+### Exercise 3: Memoize Expensive Computation with useMemo
+
+- Task:
+
+  - Create two states: number and text
+  - Compute isEven(number) with a simulated heavy function (slow loop)
+  - Use useMemo to only recompute when number changes
