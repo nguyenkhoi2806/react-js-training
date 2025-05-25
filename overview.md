@@ -21,12 +21,12 @@
 | ---- | ---------------------------------------------------------------------------------------- |
 | 1    | Introduction to React, JSX, components, style, composition, props, state, event in React |
 | 2    | lifecycle methods, fetch with Api, handle loading, error, basic hook and working form    |
-| 3    | Typescript basic, Typescript with React, pattern rendering, storybook                    |
-| 4    | React Router, Authentication with routing                                                |
-| 5    | Custom hooks, Context API, global state management (Redux/Zustand)                       |
-| 6    | performance optimization                                                                 |
-| 7    | Project structure, best practices, testing React components                              |
-| 8    | Group project: design, coding, testing, and deployment                                   |
+| 3    | Context API, global state management (Redux/Zustand) Custom hooks                        |
+| 4    | React Router, Pattern rendering, Authentication with routing                             |
+| 5    | Typescript basic, Typescript with React, Testing React components, intro storybook       |
+| 6    | Project structure, best practices, performance optimization                              |
+| 7    | Group project: design, coding, testing, and deployment                                   |
+| 8    |                                                                                          |
 
 # 🚀 Final Project
 

@@ -10,7 +10,7 @@ const MyComponent = React.memo(function MyComponent(props) {
 });
 ```
 
-**_Why use need React.memo?_**
+**_Why use need React.memo?:_**
 
 - Whenever a parent component re-renders, all child components also re-render by default, even if their props haven't changed.
 
@@ -57,12 +57,12 @@ const myRef = useRef(initialValue);
 
 `myRef.current` holds the current value of the ref.
 
-_**When use useRef**_
+**_When use useRef_**
 
 - Want to update and store a value without causing a re-render.
 - Store DOM information to access the DOM element directly.
 
-_**Example access the DOM element**_
+**_Example access the DOM element_**
 
 ```jsx
 import { useRef } from "react";
@@ -83,7 +83,7 @@ function FocusInput() {
 }
 ```
 
-_**Example store value without rerender**_
+**_Example store value without rerender_**
 
 ```jsx
 function RenderCounter() {
@@ -185,7 +185,7 @@ const memoizedValue = useMemo(() => {
 - `computeExpensiveValue` is only called again when a or b changes.
 - If the dependencies remain the same, the previous result is reused, optimizing performance.
 
-_**When use useMemo**_
+**_When use useMemo_**
 
 - Heavy computations repeated multiple times
 
@@ -247,7 +247,7 @@ const [state, dispatch] = useReducer(reducer, initialState);
 - When the update logic is complex
 - When you want to manage state in a `Redux-style (action-based)` manner
 
-_**Example**_
+**_Example_**
 
 ```jsx
 import React, { useReducer } from "react";
@@ -290,7 +290,7 @@ function Counter() {
 - Must handle onChange to update the state
 - Easy to control, validate data, and reset the form
 
-_**Example**_
+**_Example_**
 
 ```jsx
 import { useState } from "react";
@@ -309,7 +309,7 @@ function ControlledInput() {
 - No need to store values in state
 - Quick for simple forms, but harder to manage in complex forms
 
-_**Example**_
+**_Example_**
 
 ```jsx
 import { useRef } from "react";
@@ -377,7 +377,7 @@ function UncontrolledInput() {
 - "toggle": Toggle completed status
 - "delete": Remove a todo item
 
-**_Ui Example_**
+**Ui Example:**
 
 ![alt text](image-1.png)
 
@@ -414,6 +414,6 @@ React Form Exercise: Build a Simple User Registration Form
 **Additional Requirement (Refs)**
 Use a ref to automatically focus the first invalid input field when the user tries to submit the form with errors.
 
-**_Ui Suggestion_**
+**Ui Suggestion:**
 
 ![alt text](image.png)

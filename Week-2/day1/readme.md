@@ -301,7 +301,7 @@ export default function App() {
 }
 ```
 
-#### Use Axios.interceptors for global error handling
+#### 3 Use Axios.interceptors for global error handling
 
 **What is Axios Interceptor?**
 
