@@ -330,6 +330,8 @@ function UncontrolledInput() {
 }
 ```
 
+### React hook form
+
 ### Comparison
 
 | Criteria        | Controlled Component                     | Uncontrolled Component      |
