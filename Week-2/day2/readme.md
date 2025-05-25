@@ -225,6 +225,62 @@ function App() {
 }
 ```
 
+## useReducer
+
+useReducer is a React hook used for managing complex state, especially when multiple state values are related or when state updates follow clear logic.
+
+It is similar to useState, but allows you to manage state in a Redux-like way — using actions and a reducer.
+
+### How to use
+
+```jsx
+const [state, dispatch] = useReducer(reducer, initialState);
+```
+
+- `reducer`: A function that handles logic, taking the current state and an action
+- `initialState`: The initial state value
+- `dispatch`: A function used to send actions (to update the state)
+
+### When use `useReducer`
+
+- When there are multiple related state values
+- When the update logic is complex
+- When you want to manage state in a `Redux-style (action-based)` manner
+
+_**Example**_
+
+```jsx
+import React, { useReducer } from "react";
+
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    case "reset":
+      return initialState;
+    default:
+      throw new Error("Unknown action");
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      <h2>Count: {state.count}</h2>
+      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+    </div>
+  );
+}
+```
+
 ## Form
 
 ### Controlled Component
@@ -308,7 +364,24 @@ function UncontrolledInput() {
   - Compute isEven(number) with a simulated heavy function (slow loop)
   - Use useMemo to only recompute when number changes
 
-### Exercise 4
+### Exercise 4: Todo List with useReducer
+
+- Build a basic Todo List using useReducer to manage state.
+
+**Requirements:**
+
+- Create a TodoApp component.
+- Use useReducer to handle the todo list state.
+- The reducer should support:
+- "add": Add a new todo item
+- "toggle": Toggle completed status
+- "delete": Remove a todo item
+
+**_Ui Example_**
+
+![alt text](image-1.png)
+
+### Exercise 5
 
 React Form Exercise: Build a Simple User Registration Form
 
@@ -337,6 +410,9 @@ React Form Exercise: Build a Simple User Registration Form
 - Disable the submit button until the form is valid.
 - On submit, show an alert with the form data (except passwords for simplicity).
 - Bonus: Reset the form after successful submission.
+
+**Additional Requirement (Refs)**
+Use a ref to automatically focus the first invalid input field when the user tries to submit the form with errors.
 
 **_Ui Suggestion_**
 
