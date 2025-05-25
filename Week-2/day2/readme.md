@@ -2,7 +2,7 @@
 
 ## React.Memo
 
-- là một higher-order component (HOC) trong React, dùng để ghi nhớ (memoize) một component — nghĩa là React sẽ tránh re-render lại component đó nếu props không thay đổi.
+- It is a higher-order component (HOC) in React used to memoize a component — meaning React will skip re-rendering that component if its props have not changed.
 
 ```jsx
 const MyComponent = React.memo(function MyComponent(props) {
@@ -12,14 +12,15 @@ const MyComponent = React.memo(function MyComponent(props) {
 
 **_Why use need React.memo?_**
 
-- Mỗi khi component cha re-render, tất cả component con cũng mặc định re-render, dù props không đổi.
-- Dùng React.memo, bạn:
+- Whenever a parent component re-renders, all child components also re-render by default, even if their props haven't changed.
 
-  - Tránh render lại không cần thiết
-  - Tối ưu hiệu năng, nhất là với component con:
-    - nặng (nhiều tính toán)
-    - hoặc hiển thị danh sách lớn, hoặc
-    - nằm trong danh sách được map/render nhiều lần
+- Using React.memo helps to:
+
+- Avoid unnecessary re-renders
+- Optimize performance, especially for child components that are:
+  - Heavy (with complex calculations)
+  - Rendering large lists, or
+  - Part of a list being mapped/rendered multiple times
 
 ```jsx
 const Child = React.memo(({ value }) => {
@@ -39,11 +40,11 @@ function Parent() {
 }
 ```
 
-Khi nhấn nút, Parent render lại, nhưng Child không re-render, vì value không đổi.
+When the button is clicked, the Parent re-renders, but the Child does not re-render because the value hasn't changed.
 
 **_Summary_**
 
-`React.memo` giúp tiết kiệm render nếu props không đổi.
+- It helps avoid unnecessary renders if the props haven't changed.
 
 ## useRef
 
@@ -108,12 +109,11 @@ const memoizedCallback = useCallback(() => {
 
 **_Why use callback_**
 
-Khi một component React re-render, tất cả hàm bên trong nó (được định nghĩa lại trong hàm component) cũng được tạo lại mới, dẫn đến:
+When a React component re-renders, all functions defined inside it are recreated, which leads to:
 
-- Component con nhận prop là hàm mới sẽ bị re-render lại, dù không cần thiết.
-- Khi hàm callback được truyền làm dependency cho các hook như useEffect, useMemo, việc hàm đó thay đổi liên tục sẽ gây gọi lại không cần thiết.
+- A child component receiving a newly created function as a prop will re-render, even if it's not necessary.
 
-useCallback giúp tránh tái tạo hàm không cần thiết, tối ưu hiệu năng và giúp React dễ dàng kiểm soát các lần render.
+- `useCallback` helps avoid unnecessary function recreations, optimizes performance, and makes it easier for `React` to manage re-renders.
 
 ```jsx
 import React, { useState, useCallback } from "react";
@@ -142,9 +142,11 @@ export default function Parent() {
 
 **_When use useCallBack_**
 
-- Khi truyền callback xuống các component con đã được React.memo, để tránh render lại không cần thiết của component con.
-- Khi callback là dependency của các hook khác như useEffect hoặc useMemo để tránh gọi lại nhiều lần.
-- Khi hàm callback có logic phức tạp hoặc liên quan đến tính toán, cần ghi nhớ để tăng hiệu suất.?
+- When passing a callback to child components wrapped with React.memo, to prevent unnecessary re-renders of the child.
+
+- When the callback is a dependency of other hooks like useEffect or useMemo, to avoid repeated executions.
+
+- When the callback contains complex logic or expensive computations that should be memoized for better performance.
 
 ```jsx
 export default function Parent() {
@@ -166,12 +168,13 @@ export default function Parent() {
 
 **_Summary_**
 
-- useCallback giúp React "ghi nhớ" hàm, tránh tạo lại hàm mới mỗi lần render.
-- Dùng để tối ưu hiệu năng, đặc biệt khi truyền callback xuống component con hoặc làm dependency trong các hook khác.
+- `useCallback` allows React to "remember" a function, preventing it from being recreated on every render.
+
+- It is used to optimize performance, especially when passing callbacks to child components or using them as dependencies in other hooks.
 
 ## useMemo
 
-- `useMemo` là một hook trong React dùng để ghi nhớ (memoize) kết quả của một phép tính tốn kém, chỉ tính lại khi dependency thay đổi.
+- `useMemo` is a React hook used to memoize the result of an expensive computation, recalculating only when its dependencies change.
 
 ```jsx
 const memoizedValue = useMemo(() => {
@@ -179,22 +182,22 @@ const memoizedValue = useMemo(() => {
 }, [a, b]);
 ```
 
-- `computeExpensiveValue` chỉ được gọi lại khi a hoặc b thay đổi.
-- Nếu dependency không đổi → kết quả cũ được reuse → tối ưu hiệu năng.
+- `computeExpensiveValue` is only called again when a or b changes.
+- If the dependencies remain the same, the previous result is reused, optimizing performance.
 
 _**When use useMemo**_
 
-- Tính toán nặng lặp lại nhiều lần
+- Heavy computations repeated multiple times
 
-  - Ví dụ: sort, filter, map dữ liệu lớn.
+  - For example: sorting, filtering, or mapping large datasets.
 
-- Tránh tạo object/array mới mỗi render
+- Avoid creating new objects/arrays on every render
 
-  - Dùng làm props cho component con đã React.memo.
+  - Especially when passing them as props to child components wrapped with `React.memo.`
 
-- Khi performance là vấn đề thực sự
+- When performance is a real concern
 
-  - Tránh dùng để "tối ưu sớm" gây phức tạp không cần thiết.
+  - Avoid using it for premature optimization that adds unnecessary complexity.
 
 ```jsx
 import React, { useState, useMemo } from "react";
@@ -204,9 +207,9 @@ function App() {
   const [other, setOther] = useState(false);
 
   const expensiveValue = useMemo(() => {
-    console.log("♻️ Tính toán lại...");
+    console.log("calculate again...");
     let total = 0;
-    for (let i = 0; i < 1_000_000_000; i++) {
+    for (let i = 0; i < 1000000000; i++) {
       total += i;
     }
     return total + count;
@@ -215,7 +218,7 @@ function App() {
   return (
     <div>
       <p>Expensive result: {expensiveValue}</p>
-      <button onClick={() => setCount(count + 1)}>Tăng count</button>
+      <button onClick={() => setCount(count + 1)}>increase count</button>
       <button onClick={() => setOther(!other)}>Toggle other</button>
     </div>
   );
@@ -226,13 +229,10 @@ function App() {
 
 ### Controlled Component
 
-- Là các component mà giá trị của input được điều khiển hoàn toàn bởi React thông qua state.
-
-- Đặc điểm:
-
-  - Giá trị nhập vào được lưu trong useState
-  - Bắt buộc xử lý onChange để cập nhật state
-  - Dễ kiểm soát, dễ xác thực dữ liệu, dễ reset form
+- They are components whose input values are fully controlled by React through state.
+- Input values are stored in useState
+- Must handle onChange to update the state
+- Easy to control, validate data, and reset the form
 
 _**Example**_
 
@@ -248,13 +248,10 @@ function ControlledInput() {
 
 ### Uncontrolled Component
 
-- Là các component mà giá trị của input được lưu trữ trực tiếp trong DOM, không thông qua state.
-
-- Đặc điểm:
-
-  - Dùng ref để lấy giá trị khi cần thiết
-  - Không cần state để lưu trữ giá trị
-  - Nhanh chóng cho form đơn giản, nhưng khó kiểm soát khi form phức tạp
+- These are components where input values are stored directly in the DOM, not through state.
+- Use refs to access values when needed
+- No need to store values in state
+- Quick for simple forms, but harder to manage in complex forms
 
 _**Example**_
 
@@ -277,14 +274,14 @@ function UncontrolledInput() {
 }
 ```
 
-### Compartition
+### Comparison
 
-| Tiêu chí        | Controlled Component              | Uncontrolled Component         |
-| --------------- | --------------------------------- | ------------------------------ |
-| Quản lý dữ liệu | Qua `state`                       | Qua DOM (`ref`)                |
-| Tính linh hoạt  | Cao (validation, auto format,...) | Thấp hơn                       |
-| Tính hiệu năng  | Chậm hơn chút (nhiều re-render)   | Nhanh hơn cho form đơn giản    |
-| Sử dụng khi nào | Form phức tạp, cần validation     | Form đơn giản, hoặc quick task |
+| Criteria        | Controlled Component                     | Uncontrolled Component      |
+| --------------- | ---------------------------------------- | --------------------------- |
+| Data Management | Through `state`                          | Through DOM (`ref`)         |
+| Flexibility     | High (validation, auto-formatting, etc.) | Lower                       |
+| Performance     | Slightly slower (more re-renders)        | Faster for simple forms     |
+| When to Use     | Complex forms requiring validation       | Simple forms or quick tasks |
 
 ## Exercise
 
@@ -310,3 +307,37 @@ function UncontrolledInput() {
   - Create two states: number and text
   - Compute isEven(number) with a simulated heavy function (slow loop)
   - Use useMemo to only recompute when number changes
+
+### Exercise 4
+
+React Form Exercise: Build a Simple User Registration Form
+
+**Requirements:**
+
+- Create a React component named RegistrationForm with the following fields:
+- Username (text input)
+- Email (text input)
+- Password (password input)
+- Confirm Password (password input)
+- Terms and Conditions (checkbox)
+
+**Tasks:**
+
+- Use `controlled` components to handle all form inputs (store their values in React state).
+
+- Add validation rules:
+
+  - Username: required, min 3 characters
+  - Email: required, must be a valid email format
+  - Password: required, min 6 characters
+  - Confirm Password: must match Password
+  - Terms: must be checked
+
+- Show error messages below inputs if validation fails.
+- Disable the submit button until the form is valid.
+- On submit, show an alert with the form data (except passwords for simplicity).
+- Bonus: Reset the form after successful submission.
+
+**_Ui Suggestion_**
+
+![alt text](image.png)

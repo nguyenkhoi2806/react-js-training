@@ -1,5 +1,28 @@
 # Props, State in react
 
+## Props
+
+**_What is Props_**
+
+- Used to pass data from a parent component to a child component.
+- In React, props are the "inputs" of a component that help make the component flexible and reusable.
+
+**_Example_**
+
+```jsx
+function Welcome(props) {
+  return <h1>Hello, {props.name}!</h1>;
+}
+
+function App() {
+  return <Welcome name="William" />;
+}
+```
+
+- `Welcome` is the child component
+- name="William" is a prop passed from App to Welcome
+- Inside Welcome, we access props.name to use that data
+
 ## State
 
 ### What is state
@@ -78,32 +101,15 @@ export default Counter;
 - `this.setState(...)` Updated `state` and auto `re-render` UI
 - `render()` returns JSX to render on the interface.
 
-## Props
+## Component Communication
 
-**_What is Props_**
+- Props( parent-to-child)
+- Custom Events(child-to-parent)
+- Global state
 
-- Used to pass data from a parent component to a child component.
-- In React, props are the "inputs" of a component that help make the component flexible and reusable.
+## Event Handling in React
 
-**_Example_**
-
-```jsx
-function Welcome(props) {
-  return <h1>Hello, {props.name}!</h1>;
-}
-
-function App() {
-  return <Welcome name="William" />;
-}
-```
-
-- `Welcome` is the child component
-- name="William" is a prop passed from App to Welcome
-- Inside Welcome, we access props.name to use that data
-
-# Event Handling in React
-
-## What is an event?
+### What is an event?
 
 - An event is an action that a user or browser can trigger — like a click, hover, form submit, keypress, etc.
 - React uses its own synthetic event system which wraps the native DOM events and works consistently across all browsers.

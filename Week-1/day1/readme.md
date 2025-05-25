@@ -75,6 +75,145 @@ class Header extends React.Component {
 }
 ```
 
+## Styling
+
+### Inline styles in JSX
+
+- Using `style` attribute
+- CamelCase for properties
+
+```jsx
+import React from "react";
+function MyComponent() {
+  const styles = {
+    color: "red",
+    fontSize: "16px",
+    fontWeight: "bold",
+    backgroundColor: "lightblue",
+    padding: "10px",
+    borderRadius: "5px",
+  };
+  return;
+  <div style={styles}>This is a div with inline styles.</div>;
+}
+```
+
+### CSS Modules for scoped CSS
+
+- Additional setup may require
+- Naming convention: `[filename].module.css`
+- Encapsulated CSS within the component.
+
+```css
+// button.module.css
+.button {
+  background-color: blue;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+```
+
+```jsx
+// button.jsx
+import React from "react";
+import styles from "./Button.module.css";
+function Button() {
+  return <button className={styles.button}>Click me</button>;
+}
+export default Button;
+```
+
+### CSS Stylesheets
+
+- Traditional .css files imported into components.
+
+- Classes applied via className prop.
+
+```css
+.button {
+  background-color: blue;
+  color: white;
+  padding: 10px;
+}
+```
+
+```jsx
+import "./styles.css";
+
+function Button() {
+  return <button className="button">Click me</button>;
+}
+```
+
+### CSS in JS
+
+- CSS defined inside JavaScript files using tagged template literals or objects.
+- Styles are scoped, dynamic, and can use JavaScript variables and logic.
+
+```jsx
+import styled from "styled-components";
+
+const Button = styled.button`
+  background-color: blue;
+  color: white;
+  padding: 10px;
+`;
+
+function App() {
+  return <Button>Click me</Button>;
+}
+```
+
+## Component Composition
+
+Component Composition is a technique for building larger components by combining smaller, reusable components, often through the use of props and children. Instead of using inheritance, React encourages composition as the preferred way to reuse logic and UI.
+
+- Goals:
+  - Improves code reusability
+  - Separates concerns
+  - Easier to maintain and test
+
+### Children Composition
+
+- Use `props.children` to nest elements inside a parent component.
+
+```jsx
+function Modal() {
+  const { children } = props;
+  return <div className="modal">{children}</div>;
+}
+```
+
+### Props as Configuration
+
+- Pass a component or function via props so the parent component can control the child component
+
+```jsx
+function List() {
+  const { items, renderItem } = props;
+  return <ul>{items.map(renderItem)}</ul>;
+}
+```
+
+### Slot Pattern (Named Children)
+
+Allow dividing children into specific sections by passing components via props.
+
+```jsx
+function Layout({ header, content, footer }) {
+  return (
+    <>
+      <header>{header}</header>
+      <main>{content}</main>
+      <footer>{footer}</footer>
+    </>
+  );
+}
+```
+
 ## Exercise
 
 **_Note_** Use both function component and class component

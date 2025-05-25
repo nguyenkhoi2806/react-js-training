@@ -17,16 +17,16 @@
 
 # Weekly Main Topics
 
-| Week | Main Topics                                                                           |
-| ---- | ------------------------------------------------------------------------------------- |
-| 1    | Introduction to React, JSX, components, props, state, event in React                  |
-| 2    | lifecycle methods, fetch with Api, handle loading, error, basic hook and working form |
-| 3    | Typescript basic, Typescript with React, pattern rendering,                           |
-| 4    | React Router, Context API, Authentication with routing                                |
-| 5    | Custom hooks, global state management (Redux/Zustand)                                 |
-| 6    | Styling (CSS Modules/Tailwind), performance optimization                              |
-| 7    | Project structure, best practices, testing React components                           |
-| 8    | Group project: design, coding, testing, and deployment                                |
+| Week | Main Topics                                                                              |
+| ---- | ---------------------------------------------------------------------------------------- |
+| 1    | Introduction to React, JSX, components, style, composition, props, state, event in React |
+| 2    | lifecycle methods, fetch with Api, handle loading, error, basic hook and working form    |
+| 3    | Typescript basic, Typescript with React, pattern rendering, storybook                    |
+| 4    | React Router, Context API, Authentication with routing                                   |
+| 5    | Custom hooks, global state management (Redux/Zustand)                                    |
+| 6    | performance optimization                                                                 |
+| 7    | Project structure, best practices, testing React components                              |
+| 8    | Group project: design, coding, testing, and deployment                                   |
 
 # 🚀 Final Project
 
