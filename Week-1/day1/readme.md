@@ -19,7 +19,7 @@
 - React uses the Virtual DOM to optimize UI updates.
 - When changes occur, React compares the Virtual DOM with the real DOM and updates only the necessary parts.
 
-## Advantage of R of React ?
+## Advantage of of React ?
 
 - High performance thanks to the Virtual DOM
 - Reusable components
