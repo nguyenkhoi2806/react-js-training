@@ -203,3 +203,33 @@ export default function App() {
 | **Context API** | Low             | Limited             | High            |
 | **Redux**       | High            | Excellent           | Moderate        |
 | **Zustand**     | Low             | Good                | Very High       |
+
+### Exercise
+
+### 1 Themed Shopping Cart App
+
+- Build a simple React app that allows users to:
+  - Toggle between light and dark mode.
+  - Add or remove products from a shopping cart.
+  - View a summary of items in the cart.
+
+**_Requirement:_**
+
+1. `ThemeContext`
+
+   - theme: either "light" or "dark".
+   - toggleTheme(): switches between light and dark mode.
+
+2. `CartContext`
+
+- `cartItems`: an array of products (with at least id, name, price).
+- `addToCart(product)`: adds a product to the cart.
+- `removeFromCart(productId)`: removes a product by ID.
+- `clearCart()`: clears all items.
+
+**_Components to Build:_**
+
+- `ThemeToggleButton`: Toggles the theme.
+- `ProductList`: Displays mock products with “Add to Cart” buttons.
+- `CartSummary`: Displays total item count and price.
+- `CartDetail`: Lists all items in the cart with “Remove” buttons.
