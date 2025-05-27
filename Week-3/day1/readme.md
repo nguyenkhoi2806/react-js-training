@@ -29,6 +29,10 @@ As your app grows, managing shared state across deeply nested components becomes
   - Wrap your app in a provider
   - Access that state anywhere using useContext
 
+_**How it run**_:
+
+- React Context runs by providing a way to pass data deeply through the component tree without manually passing props at every level.
+
 _**Use it when**_:
 
 - You have a simple state like theme or locale
@@ -235,3 +239,53 @@ export default function App() {
 - `CartDetail`: Lists all items in the cart with “Remove” buttons.
 
 ![alt text](./image-2.png)
+
+### 2 Shopping cart with Redux
+
+- Build a React app that allows users to:
+  - Browse and search products.
+  - View product details in a modal or inline.
+  - Add products to a shopping cart.
+  - Increment, decrement, or remove items in the cart.
+  - Filter products by category.
+
+_**Requirements**_:
+
+- Use `<https://fakestoreapi.com>` to fetch:
+
+  - All products: GET /products
+  - Single product details: GET /products/:id
+  - Product categories: GET /products/categories
+  - Filter by category: GET /products/category/:category
+
+- Cart store
+
+  - `cartItems`: Array of products with id, title, price, quantity.
+  - `addToCart(product)`: Adds product to the cart.
+  - `removeFromCart(productId)`: Removes item from the cart.
+  - `increment(productId)`: Increases quantity.
+  - `decrement(productId)`: Decreases quantity (min: 1).
+  - `clearCart()`: Empties the cart.
+
+- Product store
+
+  - `products`: All products from API.
+  - `categories`: Product categories.
+  - `filteredProducts`: Products matching selected filters.
+  - `search(query)`: Filters by title.
+  - `filterByCategory(category)`: Filters by category.
+
+- Components to Build:
+
+  - `SearchBar`: Filters products by keyword.
+  - `CategoryFilter`: Select category to filter products.
+  - `ProductList`: Shows product cards with "Add to Cart" buttons.
+  - `ProductDetailModal`: Inline/modal to show product info.
+  - `Cart`: Displays cart items with increment/decrement/remove buttons.
+  - `CartSummary`: Shows total count and price.
+
+![alt text](image-3.png)
+
+### 3 Apply example above with zustand
+
+### 4 Build a shopping cart example that uses Context for theme toggling, while handling the shopping state using any state management library of your choice
