@@ -233,3 +233,5 @@ export default function App() {
 - `ProductList`: Displays mock products with “Add to Cart” buttons.
 - `CartSummary`: Displays total item count and price.
 - `CartDetail`: Lists all items in the cart with “Remove” buttons.
+
+![alt text](./image-2.png)
