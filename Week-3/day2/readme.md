@@ -160,7 +160,15 @@ Page.Footer = ({ children }) => <footer>{children}</footer>;
 - support custom headers through an options parameter
 - support all HTTP methods - e.g. both GET and POST requests
 
+- To help you get started, the starter [repo](https://github.com/reactpractice-dev/use-fetch-hook?ref=reactpractice.dev) includes failing unit tests for both the useFetch hook and the PokemonList component.
+
 ### 2 Tutorial: Create a custom hook that allows saving items to the local storage
+
+You will start from an existing Todo List app (yes, another one!) built with React. It works great - users can add / remove items - but there is only one problem - every time the page is refreshed, all the items are lost.
+
+Your task will be to implement persistence - the list of tasks should be saved to local storage, so that the user can continue where they left off after closing and reopening the browser window.
+
+You can start from this starter repo on Github, containing the todo list app: <https://github.com/reactpractice-dev/local-storage-hook>
 
 **_Requirement_**
 
@@ -197,11 +205,30 @@ const widgetConfigs = [
 
 3 Each widget type should render a different component based on the type key.
 
-🔧 Tasks:
-Create each widget component (WeatherWidget, NewsWidget, etc.) with simple UI showing its title.
+- Tasks:
 
-Create a WidgetRenderer component that uses pattern rendering (e.g., a component map or switch-case) to choose which component to render based on type.
-
-Render the full list of widgets in the Dashboard.
+  - Create each widget component (WeatherWidget, NewsWidget, etc.) with simple UI showing its title.
+  - Create a WidgetRenderer component that uses pattern rendering (e.g., a component map or switch-case) to choose which component to render based on type.
+  - Render the full list of widgets in the Dashboard.
 
 ![alt text](image.png)
+
+### 4 Build a paginated Pokemons list with a "Load more" button - starting from failing unit tests
+
+- It's common to see websites or applications that show lists of data with a "Load more" button.
+
+- Usually, the page initially shows just 10-15 results and if the user presses "Load more", more results are loaded and merged into the initial set.
+
+Some examples are the [IKEA website](https://www.ikea.com/nl/en/search/?q=office%20chairs&ref=reactpractice.dev) or the [H&M online shop!](https://www2.hm.com/en_us/home/shop-by-room/livingroom.html?sort=stock&image-size=small&image=stillLife&offset=0&page-size=72&ref=reactpractice.dev)
+
+- However, their APIs are not free, so let's use the Pokemon API instead to build something similar. Here's an example from the Pokedex website that uses the same pattern, with a "Load more" button:
+
+Build a component that displays a list of Pokemons with a "Load more" button. You can use the free Poke API to retrieve the data.
+
+- Initially, the component should only show the first 5 items
+- Below the list, there should be a label saying how many items are being displayed from the total - e.g. "Displaying 20 of 567 results"
+- Clicking "Load more" will load another 5 items into the list
+- When the are no more results, the button should no longer be displayed
+- The styling doesn't matter for this component - just make sure to display the pokemons as <li> elements in a list - <ul> - and show the name for each
+
+![alt text](image-1.png)
