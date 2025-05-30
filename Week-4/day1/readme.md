@@ -262,3 +262,95 @@ Here, if no other routes match, NotFound will render.
 If you navigate to /files/docs/report.pdf, it still matches /files/\*.
 
 Inside the Files component, you can use useParams or useMatch to get the rest of the wildcard path.
+
+## useNavigate()
+
+- Used to programmatically navigate to another route.
+
+```jsx
+import { useNavigate } from "react-router-dom";
+
+const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/dashboard");
+  };
+
+  return <button onClick={handleLogin}>Log in</button>;
+};
+```
+
+## useLocation()
+
+- Gives you access to the current location (path, search, hash, state).
+
+```jsx
+import { useLocation } from "react-router-dom";
+
+const ShowPath = () => {
+  const location = useLocation();
+  return <p>Current path: {location.pathname}</p>;
+};
+```
+
+## useParams()
+
+- Retrieves dynamic route parameters (e.g. :id in /user/:id).
+
+```jsx
+import { useParams } from "react-router-dom";
+
+const UserDetail = () => {
+  const { id } = useParams();
+  return <p>User ID: {id}</p>;
+};
+```
+
+## useMatch()
+
+- Checks if the current location matches a specific path pattern.
+
+```jsx
+import { useMatch } from "react-router-dom";
+
+const AdminBanner = () => {
+  const match = useMatch("/admin/*");
+  return match ? <p>Welcome, Admin</p> : null;
+};
+```
+
+## useOutlet()
+
+- Access the rendered child route component inside a layout component.
+
+```jsx
+import { useOutlet } from "react-router-dom";
+
+const Layout = () => {
+  const outlet = useOutlet();
+  return (
+    <>
+      <nav>Sidebar</nav>
+      <section>{outlet}</section>
+    </>
+  );
+};
+```
+
+### . useNavigation() (Data Router only)
+
+Provides info about the current navigation state (e.g. idle, submitting).
+
+```jsx
+import { useNavigation } from "react-router-dom";
+
+const SubmitButton = () => {
+  const navigation = useNavigation();
+  return (
+    <button disabled={navigation.state !== "idle"}>
+      {navigation.state === "submitting" ? "Saving..." : "Submit"}
+    </button>
+  );
+};
+```
