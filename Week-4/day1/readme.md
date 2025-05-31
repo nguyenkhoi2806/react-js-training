@@ -354,3 +354,61 @@ const SubmitButton = () => {
   );
 };
 ```
+
+## Exercise 1: Setup routes
+
+Create 3 pages — Home, About, and Contact — using createBrowserRouter, and display them inside a shared layout using`<Outlet>`.
+
+**_Requirement_**
+
+- Create 3 pages: Home.jsx, About.jsx, Contact.jsx.
+- Create a Layout.jsx component with navigation and `<Outlet />`.
+- Use `createBrowserRouter` + `RouterProvider` to define and render routes.
+
+## Exercise 2: Nested + Dynamic Routing with createBrowserRouter
+
+- Reuse your Home, About, Contact pages with layout and navigation
+- Add nested routes under About: Team and Company pages
+- Add a dynamic route under Contact: `/contact/:personId` to show individual contact details
+
+**_Requirement_**
+
+- Keep existing layout, pages, and routing as is.
+- Under `/about`, add nested routes:
+  `/about/`team → shows Team page
+  `/about/company` → shows Company page
+- Update About page to render nested links and an `<Outlet />` for nested content.
+- Add dynamic route `/contact/:personId` rendering a new component that reads URL param and displays person info.
+- Add links on Contact page to navigate to different person contacts dynamically.
+
+## Exercise 3: Add Route Guard (Protected Route)
+
+- Protect the Contact Person dynamic route `/contact/:personId` so only authenticated users can access it.
+- Redirect unauthenticated users to a new Login page.
+- Show how to implement a simple route guard with loader or redirect in React Router `v6.4+`.
+- api auth `https://dummyjson.com/docs/auth`
+
+**_Requirement_**
+Create a simple Login page.
+
+- Add a mock authentication function/state (e.g., isAuthenticated boolean).
+- Use loader in the route config for `/contact/:personId` to check authentication.
+- If not authenticated, redirect to`/login`.
+- If authenticated, allow access to `ContactPerson`.
+- Add a logout button to simulate logout and redirect to home.
+
+## Exercise 4: Lazy-Loaded Route with API Fetch
+
+- Add a Posts section.
+- Lazy-load the Posts component using React.lazy.
+- Fetch post data from `https://jsonplaceholder.typicode.com/posts.`
+- View a list of posts and link to individual post detail pages via /posts/:postId.
+- Initially load 10 posts.
+- Add a Load More button to fetch 10 more on each click.
+
+_**Requirement**_
+
+- Add a new top-level route /posts with a lazy-loaded Posts.tsx component.
+- Add nested dynamic route /posts/:postId for showing single post detail.
+- Use loader to fetch the post data.
+- Show fallback UI with Suspense.
