@@ -168,6 +168,61 @@ const user2: User = { name: "Bob", age: 30, email: "bob@example.com" };
 | Common use cases    | Used for complex and flexible type definitions                      | Used to describe clear data structures and work with classes |
 | OOP support         | Limited (cannot be implemented by classes)                          | Supports OOP (can be implemented by classes)                 |
 
+### Pick
+
+- `Pick` creates a new type by selecting a subset of properties from an existing type.
+
+**_Syntax_**
+
+```ts
+type Pick<Type, Keys extends keyof Type>
+```
+
+_**Example**_
+
+```ts
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  isAdmin: boolean;
+};
+
+type PublicUser = Pick<User, "id" | "name">;
+// {
+//   id: number;
+//   name: string;
+// }
+```
+
+### Omit<Type, Keys>
+
+- `Omit` creates a new type by excluding one or more properties from an existing type.
+
+_**Syntax**_
+
+```ts
+type Omit<Type, Keys extends keyof any>
+```
+
+**_Example:_**
+
+```ts
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  isAdmin: boolean;
+};
+
+type CreateUserInput = Omit<User, "id" | "isAdmin">;
+// Result:
+// {
+//   name: string;
+//   email: string;
+// }
+```
+
 ## Typescript with React
 
 ### Tsx
@@ -230,4 +285,3 @@ const InputFocus = () => {
 ```
 
 ### Exercises
-
