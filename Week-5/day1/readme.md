@@ -285,3 +285,67 @@ const InputFocus = () => {
 ```
 
 ### Exercises
+
+#### 1 Build a GitHub repositories search page with sorting and pagination using TypeScript and React
+
+Build a Github Repositories search page, with sorting and pagination. You can use the Github REST Api /[search/repository endpoint](https://docs.github.com/en/rest/search/search?apiVersion=2022-11-28&ref=reactpractice.dev#search-repositories) to query the data. The results should be paginated; by default, show 10 repositories per page:
+
+Users should be able to:
+
+- search repositories by name
+- choose how many items to show per page
+- choose what to sort by: best-match, stars, most-updated
+- choose whether to sort ascending or descending
+
+- You can use React Query for fetching the data.
+
+![alt text](image.png)
+
+#### 2 Build a budget app dashboard using Typescript and React
+
+Build a dashboard for an expense tracking app.
+
+For a given month, it should show:
+
+- the transactions for that month
+- the total spent amount
+- a graph of expenditure per category as a pie chart
+- Users should be able to navigate through the months.
+- Show the transactions 5 at a time, with the most recent ones first.
+
+- Since the focus is on the client-side React interactivity, this app has no backend - you can just use the sample JSON file provided for the data.
+
+- For each transaction, the date, payee, amount and category are available.
+
+For displaying the chart, you can use [React Google Charts](https://www.react-google-charts.com/?ref=reactpractice.dev) library, which has a simple to use pie chart.
+
+![alt text](8-completed-dashboard.png)
+
+#### 3 Create a simple Contact Book app using Typescript and React
+
+Create a simple Contact Book app that allows users to manage a collection of friends’ contact details.
+
+For each person, the user should be able to save the name and city where they live. Users should be able to add, edit and delete persons.
+
+All contact details should be displayed on one page, as person “cards”. The cards can be "flipped" to go to "Edit" mode by clicking an "Edit" button. Only allow editing one contact at a time.
+
+[Contact Book Demo Video](contact-book-video-1.mp4)
+
+#### 4 Create a timer that can be started and stopped
+
+- Create a 5 minute countdown timer that can be started and stopped.
+
+1 When the page is first loaded, the counter displays 5 minutes (i.e. `5:00`)
+2 When the user clicks "Start", the counter starts counting down.
+3 When the user clicks "Stop", the timer should stop elapsing time.
+4 When the user clicks "Reset", the timer should be reset to 5 minutes again
+
+What you will practice:
+
+- working with `Date` objects
+- formatting dates
+- `useState` hook
+- using `setInterval` in React
+- using the "updater" version of `useState` setter function
+
+![alt text](image-1.png)
