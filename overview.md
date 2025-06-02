@@ -23,7 +23,7 @@
 | 2    | lifecycle methods, fetch with Api, handle loading, error, basic hook and working form    |
 | 3    | State Management, Custom hooks, Pattern rendering,                                       |
 | 4    | React Router, Testing React components                                                   |
-| 5    | Typescript basic, Typescript with React, intro storybook                                 |
+| 5    | Typescript basic, Typescript with React, React ecosystem                                 |
 | 6    | Project structure, best practices, performance optimization                              |
 | 7    | Group project: design, coding, testing, and deployment                                   |
 | 8    |                                                                                          |
