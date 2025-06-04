@@ -328,3 +328,184 @@ Example .prettierrc:
 - Lint on save or commit (lint-staged, husky)
 - Format on save in VS Code
 - CI checks prevent merge of non-compliant code
+
+## Excise
+
+### 1 Build a Google Keep inspired Notes app using React Query for fetching the data and json-server as the backend API
+
+- Users can add notes with a title and text content
+- Notes are shown on top of each other, with the latest one on top
+- Users can "pin" notes; pinned notes are always shown on top
+- Users can delete notes by clicking a trash icon next to the note
+- Users can edit notes by clicking them
+
+To allow for a smooth user experience, take note of these points as well:
+
+- Show a loading indicator when saving a note is in progress (add/edit/delete) - by disabling the form button and changing its label (e.g. "Delete note" -> "Deleting note")
+- Show "toast" messages for success and error
+
+The boilerplate already has the backend server setup and a full test suite to make sure all the requirements are covered.
+
+The [boilerplate](https://github.com/reactpractice-dev/notes-app-react-query?ref=reactpractice.dev) already has the backend server setup and a full test suite to make sure all the requirements are covered.
+
+Clone the repo and see if you can get the tests to pass!
+
+![alt text](image.png)
+
+### 2 Build the Linkedin "Add experience" form
+
+Build a dynamic form inspired from **Linkedin's** "Add experience" form.
+This is an advanced challenge where you get to practice building **dynamic forms** and using **Typescript**.
+
+The form should have the following fields:
+
+job title (required)
+employment type
+company (required)
+whether the job is current or not (checkbox)
+start date (required)
+end date (disabled if job is current, required otherwise)
+
+Use Typescript for your solution. Use [react-hook-form](https://react-hook-form.com/?ref=reactpractice.dev) to build the form and [zod](https://zod.dev/?ref=reactpractice.dev) for validation.
+
+The form should show the same error messages the Linkedin form shows.
+
+![alt text](1-experiences-list-1.png)
+
+![alt text](2-add-experience-modal-2.png)
+
+![alt text](3-error-messages-1.png)
+
+You can use this sample data to get started:
+
+```ts
+// sample-data.ts
+import { JobExperience } from "./types";
+
+export const sampleJobExperiences: JobExperience[] = [
+  {
+    job_title: "Software Engineer",
+    employment_type: "Full-time",
+    company: "TechCorp Inc.",
+    is_current: true,
+    start_date: { month: "June", year: "2020" },
+  },
+  {
+    job_title: "Frontend Developer",
+    employment_type: "Contract",
+    company: "Creative Solutions Ltd.",
+    is_current: false,
+    start_date: { month: "January", year: "2018" },
+    end_date: { month: "May", year: "2020" },
+  },
+];
+```
+
+### Build and Document a UI Kit Component
+
+#### Set Up Storybook in a React Project
+
+- Create a new React project (or use one you already have).
+
+- Install Storybook:
+
+```bash
+npx storybook@latest init
+```
+
+#### Card
+
+Create a Card.tsx component with the following props:
+
+```ts
+type CardProps = {
+  title: string;
+  description?: string;
+  image?: string;
+  variant?: "default" | "outlined" | "elevated";
+  onClick?: () => void;
+};
+```
+
+#### Alert Component
+
+A simple dismissible alert with types: success, error, info, warning.
+
+- Props:
+
+```ts
+type AlertProps = {
+  type: "success" | "error" | "info" | "warning";
+  message: string;
+  closable?: boolean;
+  onClose?: () => void;
+};
+```
+
+- Storybook Goals:
+  - Use argTypes to toggle types
+  - Add actions for onClose
+  - Test with and without closable
+
+#### Toggle Switch
+
+A switch with on, off, and disabled states.
+
+- Props:
+
+```ts
+type ToggleProps = {
+  checked: boolean;
+  onChange: (value: boolean) => void;
+  disabled?: boolean;
+};
+```
+
+- Storybook Goals:
+
+  - Use controls to simulate state changes
+  - Add accessibility notes using docs
+  - Use actions to see toggle interaction
+
+#### Radio Group
+
+Render a set of radio buttons from an options array.
+
+Props:
+
+```ts
+type RadioGroupProps = {
+  options: string[];
+  value: string;
+  onChange: (value: string) => void;
+};
+```
+
+- Storybook Goals:
+
+- Document dynamic rendering with different option sets
+- Use controls for value selection
+- Log changes with actions
+
+#### Breadcrumbs
+
+Navigation breadcrumbs with icons and clickable items.
+
+```ts
+type BreadcrumbItem = {
+  label: string;
+  href?: string;
+};
+
+type BreadcrumbsProps = {
+  items: BreadcrumbItem[];
+  separator?: string;
+};
+```
+
+- Storybook Goals:
+
+- Show variations: with/without links, custom separators
+- Use custom decorators to simulate routing context
+
+#### [Reference](https://blade.razorpay.com/?path=/docs/guides-intro--docs)
