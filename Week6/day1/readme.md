@@ -265,3 +265,5 @@ function MyComponent(props) {
   // component code
 }
 ```
+
+### Document Metadata
