@@ -228,7 +228,7 @@ function Comments({ comments }) {
 }
 ```
 
-### React Compiler (Preview)
+### React Compiler
 
 **What is it?**
 
@@ -266,4 +266,60 @@ function MyComponent(props) {
 }
 ```
 
-### Document Metadata
+### Meta
+
+- **What is it?**
+
+- Meta is a new React feature that allows you to define metadata for your components, such as titles, descriptions, and other attributes.
+- This metadata can be used by tools like React Router to generate dynamic routes, improve SEO, and enhance the developer experience.
+
+- **Why use it?**
+
+- It helps you manage component-level metadata in a structured way.
+- It allows you to define how your components should behave in different contexts, such as routing or server-side rendering.
+- It improves the readability and maintainability of your code by keeping metadata close to the component definition.
+
+- **How does it work?**
+- You can define metadata using a special `meta` object inside your component file.
+- This metadata can include properties like `title`, `description`, `keywords`, and more.
+- React Router and other tools can then use this metadata to generate routes, improve SEO, and enhance the developer experience.
+
+```jsx
+import ShowRenderedHTML from "./ShowRenderedHTML.js";
+
+export default function SiteMapPage() {
+  return (
+    <ShowRenderedHTML>
+      <meta name="keywords" content="React" />
+      <meta name="description" content="A site map for the React website" />
+      <h1>Site Map</h1>
+    </ShowRenderedHTML>
+  );
+}
+```
+
+### React 19 and Server Components
+
+- **What are Server Components?**
+- Server Components are a new type of React component that runs on the server and can fetch data directly from the database or API without sending unnecessary JavaScript to the client.
+- They allow you to build faster, more efficient React applications by reducing the amount of client-side JavaScript needed.
+
+- **Why use Server Components?**
+- They improve performance by reducing the amount of JavaScript sent to the client.
+- They allow you to fetch data directly on the server, reducing the need for client-side data fetching libraries like Axios or Fetch.
+- They enable better SEO by allowing you to render content on the server before sending it to the client.
+
+- **How does it work?**
+
+- Server Components are defined using the `server` keyword in your component file.
+- They can fetch data directly from the database or API without sending unnecessary JavaScript to the client.
+- They can be used alongside Client Components, allowing you to mix server-rendered and client-rendered content in the same application.
+
+```jsx
+"use server";
+
+export default function MyServerComponent() {
+  const data = fetchDataFromDatabase();
+  return <div>{data}</div>;
+}
+```
