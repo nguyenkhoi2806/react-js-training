@@ -323,3 +323,65 @@ export default function MyServerComponent() {
   return <div>{data}</div>;
 }
 ```
+
+### Exercise
+
+#### React 19 Todo App
+
+A modern Todo List application built with **React 19**, showcasing its cutting-edge features like **Actions**, `use` hook, and Optimistic UI updates.
+
+**_Requirement_**
+
+- **Async Data Fetching**  
+  Fetch todos using React 19's `use` hook (no more `useEffect`!).
+- **CRUD Operations**  
+  Add, toggle, and delete todos with **React Actions** for seamless async state management.
+- **Optimistic Updates**  
+  Instant UI feedback with `useOptimistic` before API confirmation.
+
+**_Tech Stack_**
+
+- React Actions + `useActionState`
+- `use` hook for async data
+- `useOptimistic` for UI updates
+- Mock API: [JSONPlaceholder](https://jsonplaceholder.typicode.com)
+
+#### React 19 form features to refactor a Newsletter Subscribe form
+
+React 19 brings a lot of new improvements to how we use forms.
+Practice using the new `useActionState` hook by refactoring a "Newsletter Subscribe" form. You'd be surprised how much code you end up removing!
+
+- Fork the CodeSandbox and try it out: <https://codesandbox.io/p/sandbox/pxxhp3>
+
+- Here are a few things to pay attention to:
+  - how do you now submit the form?
+  - how do you handle the error and success states?
+  - how do you clear the form values after a successful submission?
+
+#### React 19 Feature Drill
+
+- Objective: Build a Weather Widget using React 19’s latest APIs.
+- Core Requirements
+
+**_Data Fetching with_** use
+
+- Fetch weather data from <https://api.open-meteo.com/v1/forecast>
+- Use the use hook directly in render—no useEffect or useState.
+
+**_Location Search with Actions_**
+
+- Implement a search form for cities.
+- Use React Actions to handle submission:
+- Show loading state during API fetch.
+- Store search history in useActionState.
+
+**_Optimistic UI for Units Toggle_**
+
+Add a toggle to switch between °C/°F.
+Use useOptimistic to instantly reflect the toggle before the API responds.
+
+**_Advanced Challenges_**
+
+- **Error Boundaries**: Handle API errors with React 19’s built-in error handling.
+- **Suspense**: Wrap the widget in `<Suspense>` with a skeleton loader.
+- **Document Metadata**: Dynamically update page title (`<title>`) using React 19’s new SEO hooks.

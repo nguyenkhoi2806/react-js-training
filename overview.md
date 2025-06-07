@@ -17,16 +17,16 @@
 
 # Weekly Main Topics
 
-| Week | Main Topics                                                                                                         |
-| ---- | ------------------------------------------------------------------------------------------------------------------- |
-| 1    | Introduction to React, JSX, components, style, composition, props, state, event in React                            |
-| 2    | lifecycle methods, fetch with Api, handle loading, error, basic hook and working form                               |
-| 3    | State Management, Custom hooks, Pattern rendering,                                                                  |
-| 4    | React Router, Testing React components                                                                              |
-| 5    | Typescript basic, Typescript with React, React ecosystem                                                            |
-| 6    | Intro React 19, System Design                                                                                       |
-| 7    | Project structure, best practices, performance optimization, Group project: design, coding, testing, and deployment |
-| 8    | Student show demo                                                                                                   |
+| Week | Main Topics                                                                              |
+| ---- | ---------------------------------------------------------------------------------------- |
+| 1    | Introduction to React, JSX, components, style, composition, props, state, event in React |
+| 2    | lifecycle methods, fetch with Api, handle loading, error, basic hook and working form    |
+| 3    | State Management, Custom hooks, Pattern rendering,                                       |
+| 4    | React Router, Testing React components                                                   |
+| 5    | Typescript basic, Typescript with React, React ecosystem                                 |
+| 6    | Intro React 19, Design system, Deployment, Best practices                                |
+| 7    | Student do demo, ask question                                                            |
+| 8    | Student do demo, ask question                                                            |
 
 # 🚀 Final Project
 
