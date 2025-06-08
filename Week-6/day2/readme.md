@@ -272,3 +272,25 @@ my-monorepo/
 - If your project is small or a single app, monorepo overhead might be unnecessary.
 - Complex monorepos require good knowledge of tools and setup.
 - Initial setup time is higher than a simple single-project repo.
+
+### Exercise
+
+### [Exercise 1](https://www.hackerrank.com/challenges/item-list-manager?isFullScreen=true)
+
+### [Exercise 2](https://www.hackerrank.com/challenges/code-review-feedback/problem?isFullScreen=true)
+
+### [Exercise 3](https://www.hackerrank.com/challenges/react-contact-form?isFullScreen=true)
+
+### [Exercise 4](https://www.hackerrank.com/challenges/patient-medical-records?isFullScreen=true)
+
+### [Exercise 5](https://www.hackerrank.com/challenges/blog-post/problem?isFullScreen=true)
+
+### [Exercise 6](https://www.hackerrank.com/challenges/react-slideshow-1/problem?isFullScreen=true)
+
+### [Exercise 7](https://www.hackerrank.com/challenges/employee-validation/problem?isFullScreen=true)
+
+### [Exercise 8](https://www.hackerrank.com/challenges/react-word-omitter/problem?isFullScreen=true)
+
+### [Exercise 9](https://www.hackerrank.com/challenges/cryptorank-exchange?isFullScreen=true)
+
+### [Exercise 10](https://www.hackerrank.com/challenges/react-article-sorting?isFullScreen=true)

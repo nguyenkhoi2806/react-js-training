@@ -24,7 +24,7 @@
 | 3    | State Management, Custom hooks, Pattern rendering,                                       |
 | 4    | React Router, Testing React components                                                   |
 | 5    | Typescript basic, Typescript with React, React ecosystem                                 |
-| 6    | Intro React 19, Design system, Deployment                                                |
+| 6    | Intro React 19, Design system, Project structure                                         |
 | 7    | Student do demo, ask question                                                            |
 | 8    | Student do demo, ask question                                                            |
 
