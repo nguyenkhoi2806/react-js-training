@@ -216,6 +216,8 @@ function Layout({ header, content, footer }) {
 
 ## Exercise
 
+[Project boiler late](https://github.com/nguyenkhoi2806/react-exercise-jsx)
+
 **_Note_** Use both function component and class component
 
 ### 1 Build a Traffic Light using only JSX, CSS styles, and Component Export like this picture bellow
