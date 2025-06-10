@@ -37,7 +37,7 @@ curl '<https://api.foreverbuy.in/api/user/login>' \
  -H 'sec-ch-ua: "Microsoft Edge";v="137", "Chromium";v="137", "Not/A)Brand";v="24"' \
  -H 'sec-ch-ua-mobile: ?0' \
  -H 'sec-ch-ua-platform: "macOS"' \
- --data-raw '{"email":"<lenguyenkhoi2806@gmail.com>","password":"123456"}'
+ --data-raw '{"email":"<abc@gmail.com>","password":"123456"}'
 
 ### User register
 
@@ -57,7 +57,7 @@ curl '<https://api.foreverbuy.in/api/user/register>' \
  -H 'sec-ch-ua: "Microsoft Edge";v="137", "Chromium";v="137", "Not/A)Brand";v="24"' \
  -H 'sec-ch-ua-mobile: ?0' \
  -H 'sec-ch-ua-platform: "macOS"' \
- --data-raw '{"name":"khoile","email":"<lenguyenkhoi2806@gmail.com>","password":"123456"}'
+ --data-raw '{"name":"khoile","email":"<abc@gmail.com>","password":"123456"}'
 
 ### Submit cart
 
@@ -78,7 +78,7 @@ curl '<https://api.foreverbuy.in/api/order/place>' \
  -H 'sec-ch-ua-mobile: ?0' \
  -H 'sec-ch-ua-platform: "macOS"' \
  -H 'token;' \
- --data-raw '{"address":{"firstName":"Khoi KOREAN","lastName":"Le","email":"<lenguyenkhoi2806@gmail.com>","street":"65 Đường số 30, Linh Đông, trực thuộc, thành phố Thủ Đức, Thành phố Hồ Chí Minh","city":"Ho Chi Minh","state":"21321","zipcode":"700000","country":"Vietnam","phone":"0396159997"},"items":[{"\_id":"6683d5e07f779795ecfa98bd","name":"Men Tapered Fit Flat-Front Trousers","description":"A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.","price":58,"image":["https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img15.png"],"category":"Men","subCategory":"Bottomwear","sizes":["S","M","L","XL","XXL"],"bestseller":false,"date":1719915311964,"\_\_v":0,"size":"XL","quantity":1}],"amount":68}'
+ --data-raw '{"address":{"firstName":"Khoi KOREAN","lastName":"Le","email":"<abc@gmail.com>","street":"65 Đường số 30, Linh Đông, trực thuộc, thành phố Thủ Đức, Thành phố Hồ Chí Minh","city":"Ho Chi Minh","state":"21321","zipcode":"700000","country":"Vietnam","phone":"0396159997"},"items":[{"\_id":"6683d5e07f779795ecfa98bd","name":"Men Tapered Fit Flat-Front Trousers","description":"A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.","price":58,"image":["https://raw.githubusercontent.com/avinashdm/gs-images/main/forever/p_img15.png"],"category":"Men","subCategory":"Bottomwear","sizes":["S","M","L","XL","XXL"],"bestseller":false,"date":1719915311964,"\_\_v":0,"size":"XL","quantity":1}],"amount":68}'
 
 ### Login admin
 
